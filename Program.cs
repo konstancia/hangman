@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class Hangman
+class hangman
 {
     static void Main()
     {
@@ -15,16 +15,16 @@ class Hangman
         
         char[] guessedLetters = new string('_', wordToGuess.Length).ToCharArray();
         List<char> incorrectGuesses = new List<char>();
-        int maxTries = 5;
+        const int MAX_TRIES = 5;
 
        
-        while (incorrectGuesses.Count < maxTries && new string(guessedLetters) != wordToGuess)
+        while (incorrectGuesses.Count < MAX_TRIES && new string(guessedLetters) != wordToGuess)
         {
             Console.Clear();
             Console.WriteLine("HANGMAN GAME");
             Console.WriteLine("Word: " + string.Join(" ", guessedLetters));
             Console.WriteLine("Incorrect guesses: " + string.Join(", ", incorrectGuesses));
-            Console.WriteLine($"Remaining tries: {maxTries - incorrectGuesses.Count}");
+            Console.WriteLine($"Remaining tries: {MAX_TRIES - incorrectGuesses.Count}");
 
             Console.Write("Enter a letter: ");
             string input = Console.ReadLine().ToLower();
